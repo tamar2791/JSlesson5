@@ -70,5 +70,5 @@ function removeDisk() {
     alert("הדיסק נמחק בהצלחה");
     for (const item of catalog) {
         myTable(item)
-    } 
+    }
 }
