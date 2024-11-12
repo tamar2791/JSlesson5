@@ -8,7 +8,6 @@ function sortByName() {
     for (const item of arr) {
         myTable(item)
     }
-    document.getElementById("p1").innerHTML = st;
 }
 const arrCountries = catalog.reduce((prev, cur) => {
     if (!prev.includes(cur.country))
@@ -40,6 +39,7 @@ function myTable(d) {
 
 }
 function addDisk() {
+    document.getElementById("t").innerHTML = "";
     const disk = {
         id: catalog[catalog.length - 1].id + 1,
         title: document.getElementById("title").value,
@@ -57,4 +57,18 @@ function addDisk() {
     document.getElementById("price").value = ""
     document.getElementById("year").value = ""
     alert("הדיסק נוסף בהצלחה!");
+    for (const item of catalog) {
+        myTable(item)
+    }
+}
+function removeDisk() {
+    document.getElementById("t").innerHTML = "";
+    let id=document.getElementById("n").value;
+    let index=catalog.findIndex(item=>item.id=id)
+    catalog.splice(index,1);
+    document.getElementById("n").value="";
+    alert("הדיסק נמחק בהצלחה");
+    for (const item of catalog) {
+        myTable(item)
+    }
 }
