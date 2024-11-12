@@ -71,4 +71,5 @@ function removeDisk() {
     for (const item of catalog) {
         myTable(item)
     }
+    
 }
