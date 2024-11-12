@@ -63,10 +63,10 @@ function addDisk() {
 }
 function removeDisk() {
     document.getElementById("t").innerHTML = "";
-    let id=document.getElementById("n").value;
-    let index=catalog.findIndex(item=>item.id=id)
-    catalog.splice(index,1);
-    document.getElementById("n").value="";
+    let id = document.getElementById("n").value;
+    let index = catalog.findIndex(item => item.id = id)
+    catalog.splice(index, 1);
+    document.getElementById("n").value = "";
     alert("הדיסק נמחק בהצלחה");
     for (const item of catalog) {
         myTable(item)
