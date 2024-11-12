@@ -1,17 +1,12 @@
 for (let i = 0; i < catalog.length; i++) {
     catalog[i]["id"] = i + 100;
 }
-let st = "";
 function sortByName() {
+    document.getElementById("t").innerHTML ="";
     let name = document.getElementById("1").value;
     let arr = catalog.filter(item => item.title.includes(name));
     for (const item of arr) {
-        st += "title: " + item.title + "</br>"
-        st += "artist: " + item.artist + "</br>"
-        st += "country: " + item.country + "</br>"
-        st += "company: " + item.company + "</br>"
-        st += "price: " + item.price + "</br>"
-        st += "year: " + item.year + "</br>" + "</br>"
+        myTable(item)
     }
     document.getElementById("p1").innerHTML = st;
 }
@@ -24,29 +19,23 @@ for (const item of arrCountries) {
     document.getElementById("sel").innerHTML += "<option>" + item + "</option>"
 };
 function sortByCountry() {
-    st = "";
+    document.getElementById("t").innerHTML ="";
     let country = event.target.value;
     let arr = catalog.filter(item => item.country === country);
     for (const item of arr) {
-        st += "title: " + item.title + "</br>"
-        st += "artist: " + item.artist + "</br>"
-        st += "country: " + item.country + "</br>"
-        st += "company: " + item.company + "</br>"
-        st += "price: " + item.price + "</br>"
-        st += "year: " + item.year + "</br>" + "</br>"
+        myTable(item)
     }
     document.getElementById("p1").innerHTML = st;
 }
 function findByYears() {
+    document.getElementById("t").innerHTML ="";
     st = ""
     let y1 = document.getElementById("y1").value;
     let y2 = document.getElementById("y2").value;
     const disk = catalog.find(item => item.year > y1 && item.year < y2);
-    st += "title: " + disk.title + "</br>"
-    st += "artist: " + disk.artist + "</br>"
-    st += "country: " + disk.country + "</br>"
-    st += "company: " + disk.company + "</br>"
-    st += "price: " + disk.price + "</br>"
-    st += "year: " + disk.year + "</br>" + "</br>"
-    document.getElementById("p1").innerHTML = st;
+    myTable(disk)
+}
+function myTable(d) {
+    document.getElementById("t").innerHTML += "<table>"+"<tr>"+"<td>"+d.title+"</td>"+"<td>"+d.artist+"</td>"+"<td>"+d.country+"</td>"+"<td>"+d.company+"</td>"+"<td>"+d.price+"</td>"+"<td>"+d.year+"</td>"+"</tr"
+
 }

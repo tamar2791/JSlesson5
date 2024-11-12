@@ -1,0 +1,6 @@
+body,input{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+td{
+    border: solid 0.5px rgb(145, 250, 183);
+}
